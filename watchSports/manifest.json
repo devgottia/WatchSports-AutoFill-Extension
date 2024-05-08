@@ -1,0 +1,14 @@
+{
+  "manifest_version": 2,
+
+  "name": "Watch Sports Autofill Extension",
+  "version": "0.1.0",
+  "description": "None",
+
+  "content_scripts": [
+    {
+      "js": ["jquery.js", "app.js"],
+      "matches": ["https://watchsports.to/*"]
+    }
+  ]
+}

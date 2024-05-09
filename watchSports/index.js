@@ -1,3 +1,5 @@
+const index = parseInt(localStorage.getItem("index") || 1);
+
 $(".modal-trigger").click(function () {
   const id = $(this).data("target");
 
@@ -8,9 +10,7 @@ $(".modal-trigger").click(function () {
   $("input[name='bitrate']").val("4500");
 
   $("input[name='url']").val(
-    `http://c1.ar-livehd.link/p/watch.html?streamtitle=${title}&streamid=${Math.random()
-      .toString()
-      .substr(2, 6)}`
+    `http://c1.gmstreams.site/p/watch.html?streamtitle=${title}&streamid=${index}`
   );
 
   $("input[name='channel']").val("LIVE STREAM FHD");
@@ -18,10 +18,9 @@ $(".modal-trigger").click(function () {
   $("select[name='ads']").val("1");
   $("input[name='Compatibility[]']").prop("checked", true);
 
-  $(`#submit-${id}`).click();
+  localStorage.setItem("index", index + 1);
 
-console.log(    `http://c1.ar-livehd.link/p/watch.html?streamtitle=${title}&streamid=${Math.random()
-      .toString()
-      .substr(2, 6)}`)
-    
+  setTimeout(() => {
+    $(`#submit-${id}`).click();
+  }, 600);
 });
